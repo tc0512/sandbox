@@ -16,4 +16,4 @@ jobs:
         run: pip install sympy
         
       - name: Run Code
-        run: python 202607302039.py
+        run: time python 202607302039.py
