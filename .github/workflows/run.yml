@@ -12,14 +12,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         
-      - name: Install Dependencies
-        run: pip install sympy matplotlib rich
+      - name: Install Sympy
+        run: pip install sympy
         
       - name: Run Code
-        run: time python 202608302051.py
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: matplotlib-picture
-          path: ./*.png
+        run: time python 202609082209.py
