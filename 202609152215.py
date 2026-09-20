@@ -104,4 +104,41 @@ plt.gca().set_aspect('equal')
 plt.savefig("week3-T11.png")
 plt.close()
 rich.print("[dim white]Picture generated: ./week3-T11.png[/dim white]")
+
 print("12、")
+x1, x2 = sp.solve((2*x-1)**2-16, x)
+print(f"  (1)x1={x1} x2={x2}")
+x1, x2 = sp.solve(x*(x+4)+5*(x+4), x)
+print(f"  (2)x1={x1} x2={x2}")
+x1, x2 = sp.solve(2*x**2+3*x-1, x)
+print(f"  (3)x1={x1} x2={x2}")
+x1, x2 = sp.solve((x+1)*(x+8)+2, x)
+print(f"  (4)x1={x1} x2={x2}")
+print("13、")
+print(f"  (1){1/4}")
+data = ["A", "B", "C", "D"]
+comb = list(product(data, repeat=2))
+counter = 0
+for i in comb:
+    if i==('C', 'C'):
+        counter+=1
+total = len(comb)
+print(f"  (2){counter/total}")
+x = sp.solve((300-50*x)*(12+6*x)-4800, x)[0]
+price = 1500-50*x
+print(f"15、{price}")
+print("16、")
+x = sp.Symbol("x")
+x1, x2 = sp.solve(2*x**2+3*x-1, x)
+print(f"  (1){sp.simplify(x1+x2)};{sp.simplify(x1*x2)}")
+m, n = x1, x2
+print(f"  (2){sp.simplify(m**2+n**2)}")
+s, t = x1, x2
+print(f"  (3){sp.simplify((s-t)**2)}")
+print("17、")
+t = sp.Symbol("t", real=True)
+sol = sp.solve(t**2-2*t+5-5, t)
+res = [i for i in sol if i>0][0]
+print(f"  (2){res}s")
+res = sp.solve(abs(3-t)*abs(5-t)-3, t)
+print(f"  (3){res}")
