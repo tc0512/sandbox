@@ -12,8 +12,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         
-      - name: Install Sympy
-        run: pip install sympy
+      - name: Install Dependencies
+        run: pip install sympy matplotlib rich
         
       - name: Run Code
-        run: time python 202609102137.py
+        run: time python 202609152215.py
