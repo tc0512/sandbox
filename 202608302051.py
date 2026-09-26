@@ -93,6 +93,7 @@ plt.gca().set_aspect('equal')
 plt.savefig("beginning-T15.png")
 plt.close()
 rich.print("[dim white]Picture generated: ./beginning-T15.png[/dim white]")
+
 print("16、")
 x1, x2 = sp.solve(x**2-4*x+3, x)
 print(f"  (1)x1={x1} x2={x2}")
@@ -135,7 +136,6 @@ linear, constant = float(b), float(c)
 h = linear/2
 k = constant-h**2
 print(f"  (1){h};{k}")
-
 expr1 = 2*x**2-1
 expr2 = 4*x-3
 f = expr1-expr2 # f(x)=2x^2-4x+2
@@ -147,7 +147,6 @@ if min_val==0:
     print("  (2)2x^2-1≥4x-3")
 if min_val<0:
     print("  (2)2x^2-1<4x-3")
-
 print("22、")
 BP = 2*x
 BQ = 4*x
