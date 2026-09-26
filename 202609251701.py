@@ -37,7 +37,7 @@ F = sp.Point(5, 3) # DF=2
 G = sp.Line(B, E).intersection(sp.Line(A, F))[0] # BE与AF相交于点G
 H = sp.Point(sp.Rational(5, 2), sp.Rational(3, 2)) # 点H为BF的中点
 print(f"6、{G.distance(H)}")
-x = sp.Symbol("x")
+x = sp.Symbol("x", real=True)
 B = sp.Point(0, 0) # 以B为原点建立平面直角坐标系
 A = sp.Point(sp.Rational(9, 5), sp.Rational(12, 5)) # AB=3
 C = sp.Point(5, 0)
@@ -61,9 +61,39 @@ c2 = Circle((1, 0), 1, fill=False, edgecolor='blue', linewidth=2)
 c3 = Circle((0, 1), 1, fill=False, edgecolor='blue', linewidth=2)
 plt.gca().add_patch(c2)
 plt.gca().add_patch(c3)
+plt.plot([0, 3], [0, 3], 'b-', linewidth=2)
+plt.scatter(1.2, 1.2, s=100, c='blue')
+plt.text(1.2, 1.2, "E", fontsize=24)
+c4 = Circle((0, 0), 6*np.sqrt(2)/5, fill=False, edgecolor='blue', linewidth=2)
+c5 = Circle((1.2, 1.2), 6*np.sqrt(2)/5, fill=False, edgecolor='blue', linewidth=2)
+plt.gca().add_patch(c4)
+plt.gca().add_patch(c5)
+plt.plot([3/5-3*np.sqrt(3)/5, 3/5+3*np.sqrt(3)/5], [3/5+3*np.sqrt(3)/5, 3/5-3*np.sqrt(3)/5], 'b-', linewidth=2)
+plt.scatter(1.2, 0, s=100, c='blue')
+plt.text(1.2, 0, "D", fontsize=24)
+plt.scatter(0, 1.2, s=100, c='blue')
+plt.text(0, 1.2, "F", fontsize=24)
+plt.plot([0, 1.2], [1.2, 1.2], 'b-', linewidth=2)
+plt.plot([1.2, 1.2], [1.2, 0], 'b-', linewidth=2)
 plt.xlim(-1, 4)
 plt.ylim(-1, 3)
 plt.gca().set_aspect('equal')
 plt.savefig("week4-T9.png")
 plt.close()
 rich.print("[dim white]Picture generated: ./week4-T9.png[/dim white]")
+
+print("10、")
+try:
+    x1, x2 = sp.solve(sp.Rational(1, 2)*x-1-2*x**2, x)
+    print(f"  (1)x1={x1} x2={x2}")
+except Exception:
+    print("  (1)无实数根")
+x1, x2 = sp.solve(2*x**2-12*x+1, x)
+print(f"  (2)x1={x1} x2={x2}")
+m = sp.Symbol("m", real=True)
+a = m
+b = 1-2*m
+c = m
+delta = b**2-4*a*c
+domain = sp.solve((delta>=0), m)
+print(f"  (3){domain}")
