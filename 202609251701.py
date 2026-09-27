@@ -1,6 +1,7 @@
 import sympy as sp
 import numpy as np
 import rich
+from itertools import product
 
 import matplotlib
 matplotlib.use("Agg")
@@ -97,3 +98,39 @@ c = m
 delta = b**2-4*a*c
 domain = sp.solve((delta>=0), m)
 print(f"  (3){domain}")
+data1 = ["R", "B"]
+data2 = ["R", "B1", "B2"]
+comb = list(product(data1, data2))
+avail = len([i for i in comb if i[0][0]!=i[1][0]])
+total = len(comb)
+print(f"11、{avail/total}")
+print("12、")
+l = [i for i in sp.solve(x*(72-3*x)-384, x) if 72-3*i<=36][0]
+print(f"  (2){l}")
+print("14、")
+percent = [i for i in sp.solve(50*(1+x)**2-72, x) if i>0][0]*100
+print(f"  (1){percent}%")
+y = sp.Symbol("y")
+price = min(sp.solve((y-30)*(900-10*y)-8000, y))
+print(f"  (2){price}")
+print("16、")
+f = x**2-8*x+9 # 令f(x)=x^2-8x+9
+zero_point = sp.solve(sp.diff(f, x), x)[0] # 令f'(x)=0, 则x=4
+min_val = f.subs(x, zero_point)
+print(f"  (1){min_val}")
+f1 = 3*x**2-2*x+5
+f2 = 2*x**2+4*x-6
+f = f1-f2 # f(x)=x^2-6x+11
+zero_point = sp.solve(sp.diff(f, x), x)[0] # 令f'(x)=0, 则x=3
+min_val = f.subs(x, zero_point)
+print("  (2)3x^2-2x+5>2x^2+4x-6" if min_val>0 else "  (2)3x^2-2x+5<2x^2+4x-6")
+t = sp.Symbol("t")
+AC = 4
+BC = 8
+AM = t
+CN = 2*t
+CM = AC-AM
+SMCN = CM*CN/2
+zero_point = sp.solve(sp.diff(SMCN, t), t)[0]
+max_val = SMCN.subs(t, zero_point)
+print(f"  (3){zero_point};{max_val}")
