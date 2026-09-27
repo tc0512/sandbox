@@ -16,4 +16,10 @@ jobs:
         run: pip install sympy matplotlib rich
         
       - name: Run Code
-        run: time python 202609152215.py
+        run: time python 202609251701.py
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: matplotlib-picture
+          path: ./*.png
