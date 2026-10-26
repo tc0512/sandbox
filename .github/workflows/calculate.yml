@@ -1,0 +1,19 @@
+name: Calculate Formula
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  run-code:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Install Sympy
+        run: pip install sympy
+        
+      - name: Run Code
+        run: python calculate.py
